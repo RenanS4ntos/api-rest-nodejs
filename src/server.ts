@@ -3,10 +3,10 @@ import { Knex } from './database'
 
 const app = fastify()
 
-app.get('/hello', async () => {
-  const tables = await Knex('sqlite_schema').select('*')
+app.get('/transactions', async () => {
+  const transactions = await Knex('transactions').select('*')
 
-  return { message: 'Hello World', tables }
+  return transactions
 })
 
 app.listen({ port: 3333 }).then(() => {
